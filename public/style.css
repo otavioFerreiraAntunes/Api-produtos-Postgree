@@ -1,0 +1,174 @@
+/* ============================================= */
+/* CSS Simplificado e Elegante                   */
+/* ============================================= */
+
+:root {
+  --primary: #3b3d68;
+  --success: #27ae60;
+  --danger: #c0392b;
+  --bg: #f4f7f6;
+  --text: #333;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: var(--bg);
+  color: var(--text);
+  margin: 0;
+  padding: 20px;
+  line-height: 1.6;
+}
+
+.container {
+  max-width: 1000px;
+  margin: 0 auto;
+  background: #ffe600;
+  padding: 30px;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+.container-header {
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+h1, h2 {
+  color: var(--primary);
+  border-bottom: 2px solid var(--primary);
+  padding-bottom: 10px;
+}
+
+p {
+  color: var(--primary);
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+/* ─── FORMULÁRIO ─── */
+
+.form-section {
+  margin-bottom: 40px;
+}
+
+.form-group {
+  margin-bottom: 15px;
+  display: flex;
+  flex-direction: column;
+}
+
+label {
+  font-weight: 600;
+  margin-bottom: 5px;
+  font-size: 0.9rem;
+}
+
+input, select {
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 1rem;
+}
+
+input:focus {
+  border-color: var(--primary);
+  outline: none;
+  box-shadow: 0 0 5px rgba(44, 62, 80, 0.2);
+}
+
+/* Layout em colunas para os campos */
+.form-row {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 15px;
+  margin-bottom: 15px;
+}
+
+/* ─── BOTÕES ─── */
+
+.btn-group {
+  margin-top: 20px;
+  display: flex;
+  gap: 10px;
+}
+
+.btn {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: opacity 0.2s;
+}
+
+.btn:hover {
+  opacity: 0.8;
+}
+
+.btn-success { background: var(--success); color: white; }
+.btn-secondary { background: #7f8c8d; color: white; }
+.btn-danger { background: var(--danger); color: white; }
+.btn-edit { background: #f39c12; color: white; }
+
+/* ─── TABELA ─── */
+
+.table-container {
+  overflow-x: auto; /* Garante que role em celulares */
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+  background: white;
+}
+
+th, td {
+  text-align: left;
+  padding: 12px;
+  border-bottom: 1px solid #eee;
+}
+
+th {
+  background-color: var(--primary);
+  color: white;
+}
+
+tr:hover {
+  background-color: #f9f9f9;
+}
+
+/* ─── BUSCA ─── */
+
+.search-section {
+  background: #f9f9f9;
+  padding: 15px;
+  border-radius: 4px;
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+#searchInput {
+  flex: 1;
+}
+
+/* ─── MODAL DE MENSAGEM ─── */
+
+#modalMessage {
+  position: fixed;
+  top: 0; left: 0; width: 100%; height: 100%;
+  background: rgba(0,0,0,0.5);
+  display: none; /* JS muda para flex */
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modal-content {
+  background: white;
+  padding: 20px;
+  border-radius: 8px;
+  text-align: center;
+  min-width: 300px;
+}
