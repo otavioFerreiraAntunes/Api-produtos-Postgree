@@ -138,10 +138,16 @@ button {
   color: var(--white);
   text-decoration: none;
   display: inline-block;
+  padding: 10px 24px;
+  border-radius: 6px;
+  font-family: sans-serif;
+  font-weight: bold;
+  transition: 0.2s;
 }
 
 .btn-primary:hover {
   background-color: var(--primary-hover);
+  filter: brightness(0.9);
 }
 
 .btn-secondary {
