@@ -1,48 +1,33 @@
-// ============================================================
-// APP.JS - Arquivo Principal com dotenv
-// ============================================================
-
-// Carregar variáveis de ambiente ANTES de tudo
+// 1. Carregar variáveis de ambiente
 require('dotenv').config();
 
 const express = require('express');
+const cors = require('cors'); // Importação necessária
 const app = express();
 
-// Porta vem do .env, ou usa 3000 como padrão
-const PORT = process.env.PORT || 3000;
-
-// ============================================================
-// MIDDLEWARES
-// ============================================================
-
-app.use(express.json());
+// 2. MIDDLEWARES - A ordem aqui é fundamental!
+app.use(cors()); // Ativa a permissão para o React acessar a API
+app.use(express.json()); // Permite receber dados em JSON
 app.use(express.static('public'));
 
-// ============================================================
-// ROTAS
-// ============================================================
+// 3. DEFINIÇÃO DA PORTA
+const PORT = process.env.PORT || 3000;
 
+// 4. ROTAS
 const produtoRoutes = require('./src/routes/produtoRoutes');
 app.use('/produtos', produtoRoutes);
 
 app.get('/', (req, res) => {
   res.json({ 
     mensagem: 'API de Produtos com PostgreSQL',
-    versao: '3.0',
-    ambiente: process.env.NODE_ENV || 'development',
     banco: 'PostgreSQL'
   });
 });
 
-// ============================================================
-// INICIAR SERVIDOR
-// ============================================================
-
+// 5. INICIAR SERVIDOR[cite: 1]
 app.listen(PORT, () => {
   console.log('='.repeat(50));
-  console.log('🚀 Servidor rodando!');
+  console.log('🚀 Servidor rodando com CORS habilitado!');
   console.log(`📍 URL: http://localhost:${PORT}`);
-  console.log(`💾 Banco: PostgreSQL (${process.env.DB_NAME})`);
-  console.log(`🌍 Ambiente: ${process.env.NODE_ENV || 'development'}`);
   console.log('='.repeat(50));
 });
